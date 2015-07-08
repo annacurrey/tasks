@@ -61,24 +61,3 @@ if __name__ == '__main__':
         fout.write(output.encode('utf-8'))
         fout.close()
         
-usage: split_morphemes.py [-h] [-model model] [-output_corpus output_corpus]
-                          [-save_model save_model] [-maxepochs maxepochs]
-                          corpus
-
-Trains a morfessor model given a corpus, and splits all words in the corpus
-according to the morfessor model. You can also provide a Morfessor binary
-model file.
-
-positional arguments:
-  corpus                The text corpus, one sentence per line
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -model model          Morfessor model file path (binary file)
-  -output_corpus output_corpus
-                        The output corpus file path
-  -save_model save_model
-                        Saves the model as a binary model file (provide file
-                        path)
-  -maxepochs maxepochs  Maximum iterations for training the model (default= no
-                        maximum, stop untill convergence)
