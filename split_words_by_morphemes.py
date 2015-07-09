@@ -47,11 +47,17 @@ if __name__ == '__main__':
     for sentence in corpus:
         out = []
         for word in sentence:
-            segmentation = model.segment(word)
+            try:
+                segmentation = model.segment(word)
+            except:
+                try:
+                    segmentation = model.viterbi_segment(word)[0]
+                except:
+                    segmentation = [word]
             for segment in segmentation:
                 out += segmentation
         if args.output_corpus:
-            output += ' '.join(out) + '\n' 
+            output += (' '.join(out) + '\n')
         else:
             print ' '.join(out).encode('utf-8')
             
